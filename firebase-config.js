@@ -29,14 +29,15 @@
 // That's it — no other file needs to change.
 // =====================================================================
 
-export const firebaseConfig = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME.firebaseapp.com",
-  databaseURL: "https://REPLACE_ME-default-rtdb.firebaseio.com",
-  projectId: "REPLACE_ME",
-  storageBucket: "REPLACE_ME.appspot.com",
-  messagingSenderId: "REPLACE_ME",
-  appId: "REPLACE_ME"
+const firebaseConfig = {
+  apiKey: "AIzaSyCJadX29x_zAXivbe7a-prHctKirvWRzso",
+  authDomain: "wurl-cup.firebaseapp.com",
+  databaseURL: "https://wurl-cup-default-rtdb.firebaseio.com",
+  projectId: "wurl-cup",
+  storageBucket: "wurl-cup.firebasestorage.app",
+  messagingSenderId: "445144389252",
+  appId: "1:445144389252:web:d41b7175815fa68e3094d1",
+  measurementId: "G-P1VT3HWBV6"
 };
 
 export const isConfigured = !Object.values(firebaseConfig).some((v) =>
