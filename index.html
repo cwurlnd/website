@@ -1,13 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>coreywurl.com</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>The Wurl Cup — Kieran's Bachelor Weekend Ryder Cup</title>
+<meta name="description" content="Notre Dame vs. Saratoga — a Ryder Cup at Saratoga Spa's Par 29, August 15, for Kieran's bachelor weekend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="#top">Wurl Cup</a>
+    <div class="topnav-links">
+      <a href="#standings">Standings</a>
+      <a href="#matches">Matches</a>
+      <a href="#course">Course</a>
+      <a href="#lineups">Lineups</a>
+      <a href="#format">Format</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="eyebrow">Kieran's Bachelor Weekend</p>
+    <h1 class="hero-title">The Wurl&nbsp;Cup</h1>
+
+    <svg class="pine-divider" viewBox="0 0 240 46" aria-hidden="true">
+      <g fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40 40 L40 30 M32 34 L40 22 L48 34 M35 26 L40 16 L45 26"/>
+        <path d="M120 40 L120 26 M108 32 L120 12 L132 32 M112 22 L120 6 L128 22"/>
+        <path d="M200 40 L200 30 M192 34 L200 22 L208 34 M195 26 L200 16 L205 26"/>
+        <line x1="0" y1="40" x2="235" y2="40" stroke-width="1"/>
+      </g>
+    </svg>
+
+    <p class="hero-sub">Notre&nbsp;Dame <span class="vs">vs.</span> Saratoga</p>
+    <p class="hero-meta">Saratoga Spa Par&nbsp;29 &nbsp;·&nbsp; August 15, 2026</p>
+
+    <div class="countdown" id="countdown" aria-label="Countdown to first tee time">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-days">–</span><span class="countdown-label">Days</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-hours">–</span><span class="countdown-label">Hrs</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-mins">–</span><span class="countdown-label">Min</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-secs">–</span><span class="countdown-label">Sec</span></div>
+    </div>
+    <p class="countdown-caption" id="countdown-caption">until first tee time</p>
+  </div>
+</header>
+
+<div id="sync-banner" class="sync-banner hidden"></div>
+
+<main>
+
+  <!-- ================= STANDINGS / SCOREBOARD ================= -->
+  <section class="section" id="standings">
+    <p class="section-eyebrow">The Standings</p>
+    <div class="scoreboard">
+      <div class="scoreboard-side">
+        <p class="scoreboard-team nd">Notre&nbsp;Dame</p>
+        <p class="scoreboard-score" id="score-nd">0</p>
+      </div>
+      <div class="scoreboard-mid">
+        <span class="scoreboard-dash">–</span>
+        <p class="scoreboard-caption" id="cup-status">Matches not yet underway</p>
+      </div>
+      <div class="scoreboard-side">
+        <p class="scoreboard-team toga">Saratoga</p>
+        <p class="scoreboard-score" id="score-toga">0</p>
+      </div>
+    </div>
+    <p class="scoreboard-footnote">3 matches · fourball best ball · 1 point each · 1½ to win the Cup</p>
+    <p class="jacket-line" id="jacket-line"></p>
+  </section>
+
+  <!-- ================= MATCHES ================= -->
+  <section class="section" id="matches">
+    <p class="section-eyebrow">The Matches</p>
+    <h2 class="section-title">Tee It Up</h2>
+    <p class="section-intro">Tap a hole to record who won it. Best ball — lower of the pair's two scores counts. Updates live for everyone.</p>
+
+    <div id="matches-list" class="matches-list">
+      <!-- match cards injected by app.js -->
+    </div>
+  </section>
+
+  <!-- ================= COURSE ================= -->
+  <section class="section alt" id="course">
+    <p class="section-eyebrow">The Course</p>
+    <h2 class="section-title">Saratoga Spa — Par 29</h2>
+    <div class="course-grid">
+      <div class="course-facts">
+        <div class="fact"><span class="fact-num">9</span><span class="fact-label">Holes</span></div>
+        <div class="fact"><span class="fact-num">29</span><span class="fact-label">Par</span></div>
+        <div class="fact"><span class="fact-num">7&nbsp;/&nbsp;2</span><span class="fact-label">Par&nbsp;3s&nbsp;/&nbsp;Par&nbsp;4s</span></div>
+        <div class="fact"><span class="fact-num">~1,650</span><span class="fact-label">Yards</span></div>
+      </div>
+      <p class="course-copy">
+        Tucked into the pines of Saratoga Spa State Park, the Par 29 is short, tight, and unforgiving of a lazy swing — tree-lined
+        corridors, sloped greens, and barely a flat lie in sight. Most nine-hole rounds move quickly, so expect a brisk pace
+        and very little time between "nice shot" and "your turn."
+      </p>
+    </div>
+    <p class="course-address">60 Roosevelt Drive, Saratoga Springs, NY</p>
+  </section>
+
+  <!-- ================= LINEUPS ================= -->
+  <section class="section" id="lineups">
+    <p class="section-eyebrow">The Lineups</p>
+    <h2 class="section-title">Who's Playing</h2>
+
+    <div class="lineups-grid" id="lineups-view">
+      <!-- rendered by app.js -->
+    </div>
+
+    <div class="lineups-edit hidden" id="lineups-edit">
+      <!-- rendered by app.js -->
+    </div>
+
+    <button class="manage-btn" id="manage-toggle">Manage Lineups</button>
+  </section>
+
+  <!-- ================= FORMAT ================= -->
+  <section class="section alt" id="format">
+    <p class="section-eyebrow">The Format</p>
+    <h2 class="section-title">How It's Scored</h2>
+    <div class="format-copy">
+      <p>Three matches, each a two-on-two <strong>fourball (best ball)</strong> — Notre Dame pair vs. Saratoga pair. On every
+      hole, each player plays their own ball; the better of the two scores on each team counts. Whichever team has the
+      lower ball wins the hole. Match the other side, and the hole is halved.</p>
+      <p>Each match is worth <strong>one point</strong> toward the Wurl Cup — a halved match splits the point, ½ to each
+      side. A match can finish early if one team goes up by more holes than remain to be played (a "3&amp;2" finish, for
+      example). Whichever side claims the most points across all three matches wins the Cup. Tied at 1½ apiece, the Cup
+      is shared — and Kieran buys the next round.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-rule"></div>
+  <p>Cheers to Kieran — see you on the first tee.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
 </html>
