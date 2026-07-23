@@ -29,7 +29,7 @@
 // That's it — no other file needs to change.
 // =====================================================================
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCJadX29x_zAXivbe7a-prHctKirvWRzso",
   authDomain: "wurl-cup.firebaseapp.com",
   databaseURL: "https://wurl-cup-default-rtdb.firebaseio.com",
