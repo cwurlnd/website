@@ -1,4 +1,4 @@
-import { firebaseConfig, isConfigured } from "./firebase-config.js";
+import { firebaseConfig, isConfigured } from "./firebase-config.js?v=2";
 
 /* ================= Seed data ================= */
 /* This is the starting lineup. Once Firebase is connected, this only
