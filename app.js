@@ -1,4 +1,4 @@
-import { firebaseConfig, isConfigured } from "./firebase-config.js?v=2";
+import { firebaseConfig, isConfigured } from "./firebase-config.js?v=3";
 
 /* ================= Seed data ================= */
 /* This is the starting lineup. Once Firebase is connected, this only
@@ -87,6 +87,9 @@ async function persist(newState) {
 
 function setHole(matchId, holeNum, result) {
   const next = deepClone(state);
+  if (!next.matches[matchId].holes) {
+    next.matches[matchId].holes = {};
+  }
   const current = next.matches[matchId].holes[holeNum];
   next.matches[matchId].holes[holeNum] = current === result ? null : result;
   persist(next);
@@ -95,17 +98,20 @@ function setHole(matchId, holeNum, result) {
 function resetMatch(matchId) {
   if (!confirm("Reset all holes for this match?")) return;
   const next = deepClone(state);
-  next.matches[matchId].holes = {};
+  if (next.matches && next.matches[matchId]) {
+    next.matches[matchId].holes = {};
+  }
   persist(next);
 }
 
 /* ================= Match-play scoring ================= */
-function computeMatch(holes) {
+function computeMatch(holes = {}) {
   let nd = 0,
     toga = 0,
     lastHole = 0;
+  const safeHoles = holes || {};
   for (let h = 1; h <= 9; h++) {
-    const r = holes[h];
+    const r = safeHoles[h];
     if (!r) continue;
     lastHole = h;
     if (r === "ND") nd++;
